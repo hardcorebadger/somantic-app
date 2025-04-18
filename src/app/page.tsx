@@ -3,6 +3,44 @@ import Link from 'next/link';
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, CheckCircle2 } from 'lucide-react';
 import Image from 'next/image';
+import type { Metadata } from 'next';
+
+// Define Metadata
+export const metadata: Metadata = {
+  title: 'Somantic | Analytics for Generative Products',
+  description: 'Somantic turns language into data so AI teams can see what\'s broken, what users want, and what to build next.',
+  // Open Graph Tags
+  openGraph: {
+    title: 'Somantic | Analytics for Generative Products',
+    description: 'Somantic turns language into data so AI teams can see what\'s broken, what users want, and what to build next.',
+    url: '/', // Replace with your actual site URL in production (e.g., from env var)
+    siteName: 'Somantic',
+    images: [
+      {
+        url: '/images/og-image.png', // Replace with your actual OG image path
+        width: 1200,
+        height: 630,
+        alt: 'Somantic Application Screenshot',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  // Twitter Card Tags
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Somantic | Analytics for Generative Products',
+    description: 'Somantic turns language into data so AI teams can see what\'s broken, what users want, and what to build next.',
+    // creator: '@yourtwitterhandle', // Optional: Add your Twitter handle
+    images: ['/images/og-image.png'], // Replace with your actual OG image path
+  },
+  // Optional: Add more metadata like icons, keywords etc.
+  // icons: {
+  //   icon: '/favicon.ico',
+  //   // shortcut: '/shortcut-icon.png',
+  //   // apple: '/apple-touch-icon.png',
+  // },
+};
 
 export default async function Index() {
 
@@ -73,18 +111,20 @@ export default async function Index() {
       </nav>
       {/* End New Header */}
 
-      {/* Hero Section Content - Needs to be added */}
+      {/* Hero Section Content - Added Animation */}
       <div className="flex-1 flex flex-col gap-6 max-w-6xl px-3 w-full items-center justify-center text-center py-8 md:py-24">
-         <h1 className="text-5xl md:text-5xl font-semibold leading-tight tracking-tighter ">Analytics for <span className="italic">generative products.</span></h1>
-         <p className="text-lg text-foreground/80 max-w-xl">
+         <h1 className="text-5xl md:text-5xl font-semibold leading-tight tracking-tighter opacity-0 animate-fadeInUp" style={{ animationDelay: '0.1s' }}>Analytics for <span className="italic">generative products.</span></h1>
+         <p className="text-lg text-foreground/80 max-w-xl opacity-0 animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
            Somantic turns language into data so AI teams can see what's broken, what users want, and what to build next.
          </p>
-         <Button size="lg" asChild className="mt-4 text-md py-6 px-6">
-           <Link href="/start">Start for free →</Link>
-         </Button>
+         <div className="opacity-0 animate-fadeInUp" style={{ animationDelay: '0.3s' }}> {/* Added wrapper for button animation */} 
+           <Button size="lg" asChild className="mt-4 text-md py-6 px-6">
+             <Link href="/start">Start for free →</Link>
+           </Button>
+         </div>
 
-         {/* Added Hero Image */}
-         <div className="p-0 mt-12 w-full max-w-6xl mx-auto rounded-lg border border-foreground/10 shadow-[0_0_50px_0_rgba(0,0,0,0.1)] overflow-hidden">
+         {/* Added Hero Image - Added Animation */}
+         <div className="p-0 mt-12 w-full max-w-6xl mx-auto rounded-lg border border-foreground/10 shadow-[0_0_50px_0_rgba(0,0,0,0.1)] overflow-hidden opacity-0 animate-fadeInUp" style={{ animationDelay: '0.4s' }}>
            <Image
              src="/images/hero.png" // Assumes hero.png is in the /public directory
              alt="Somantic Application Screenshot"
@@ -96,9 +136,9 @@ export default async function Index() {
        </div>
       {/* End Hero Section Content */}
 
-      {/* Added Features Section */}
+      {/* Added Features Section - Added Animation to Title */}
       <section className="w-full max-w-6xl px-3 py-8 md:py-16">
-        <h2 className="text-3xl md:text-4xl font-semibold text-center mb-24">
+        <h2 className="text-3xl md:text-4xl font-semibold text-center mb-24 opacity-0 animate-fadeInUp" style={{ animationDelay: '0.5s' }}>
           You&apos;ve shipped your AI, but now you&apos;re flying blind.
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-16 text-left">
